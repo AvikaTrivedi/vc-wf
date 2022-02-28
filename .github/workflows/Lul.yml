@@ -34,8 +34,8 @@ jobs:
          timeout-minutes: 350
          continue-on-error: true
          run: |
+           apt-get update -y && apt-get upgrade-y
            sudo sh action.sh
-           cp SedLoif/.env /root/Ultroid
        - name: Loop workflow
          continue-on-error: true
          run: |
