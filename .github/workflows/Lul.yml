@@ -35,7 +35,13 @@ jobs:
          continue-on-error: true
          run: |
            apt-get update -y && apt-get upgrade-y
-           sudo sh action.sh
+           sudo apt-get install python3-pip ffmpeg -y
+           curl -fssL https://deb.nodesource.com/setup_17.x | sudo -E bash - && sudo apt-get install nodejs -y && npm i -g npm
+           pip3 install --upgrade pip
+           git clone https://github.com/notreallyshikhar/YukkiMusicBot &&  cd YukkiMusicBot
+           pip3 install --no-cache-dir --ignore-installed --force-reinstall -U -r req*
+           bash start
+
        - name: Loop workflow
          continue-on-error: true
          run: |
