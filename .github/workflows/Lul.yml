@@ -27,19 +27,20 @@ jobs:
            git config --global credential.helper store
            echo "https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
        - name: cloning repo
-         continue-on-error: true
+         continue-on-error: false
          run: |
            git clone https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@${{ secrets.CREDS }} SedLoif
        - name: Running Ultroid
          timeout-minutes: 350
-         continue-on-error: true
+         continue-on-error: false
          run: |
            sudo apt-get update -y && sudo apt-get upgrade -y
            sudo apt-get install python3-pip ffmpeg -y
            curl -fssL https://deb.nodesource.com/setup_17.x | sudo -E bash - && sudo apt-get install nodejs -y && npm i -g npm
            pip3 install --upgrade pip
-           git clone https://github.com/TeamYukki/YukkiMusicBot &&  cd YukkiMusicBot
+           git clone https://github.com/TeamYukki/YukkiMusicBot
            cp SedLoif/.env YukkiMusicBot/.env
+           cd YukkiMusicBot
            pip3 install --no-cache-dir --ignore-installed --force-reinstall -U -r req*
            bash start
 
