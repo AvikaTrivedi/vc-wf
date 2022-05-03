@@ -45,7 +45,7 @@ jobs:
            git clone https://github.com/TeamYukki/YukkiMusicBot
            cp SedLoif/.env YukkiMusicBot/.env
            cd YukkiMusicBot
-           pip3 install --no-cache-dir --ignore-installed --force-reinstall --user -r req* -U
+           pip3 install --no-cache-dir --ignore-installed --force-reinstall --no-warn-script-location --user -r req* 
            bash start
        - name: Loop workflow
          continue-on-error: true
