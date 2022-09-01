@@ -41,6 +41,7 @@ jobs:
            
            brew update
            brew install neofetch
+           brew install httpx
            pip3 install --upgrade pip
            git clone https://github.com/TeamYukki/YukkiMusicBot
            cp SedLoif/.env YukkiMusicBot/.env
